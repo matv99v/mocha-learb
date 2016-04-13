@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "mocha-test": "mocha --timeout 60000 --reporter spec --ui qunit test/*.js"
+    "test": "mocha --timeout 60000 --reporter spec --ui qunit test/*.js"
   },
   "author": "",
   "license": "ISC",
