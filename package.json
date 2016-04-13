@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --timeout 60000 --reporter spec --ui qunit test/*.js"
+    "test_mocha": "mocha --timeout 60000 --reporter spec --ui qunit test/*.js",
+    "lint": "eslint src test",
+    "test": "npm run lint && npm run test_mocha"
   },
   "author": "",
   "license": "ISC",
