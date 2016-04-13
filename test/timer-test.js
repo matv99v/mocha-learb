@@ -68,7 +68,6 @@ test('Check creating timer with arguments', (done) => {
             timer.clear();
             assert.closeTo(timer.getSpentTime(), 0, 50, 'should be between [950, 1050]' );
             timer.stop();
-        })
-        .then(() => done())
+        }).then(() => done())
         .catch(err => done(err));
 });
