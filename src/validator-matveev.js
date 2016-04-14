@@ -18,7 +18,7 @@ function validateRegistrationData(formData) {
         email: {
             matchTests: [
                 {
-                    regExp: /^[a-z0-9._-]+@[a-z0-9.-]+\.[a-z0-9.-]{2,}$/ig,
+                    regExp: /^[a-z0-9_-]+@[a-z0-9.-]+\.[a-z0-9.-]{2,}$/ig,
                     errMsg: 'Wrong email format'
                 }
             ],
@@ -144,7 +144,7 @@ function validateRegistrationData(formData) {
         errors.birthday = 'Date should not be in future';
     }
 
-    return errors;
+    if (Object.keys(errors).length) return errors;
 }
 
 module.exports = {validateRegistrationData};

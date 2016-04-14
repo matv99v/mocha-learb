@@ -1,0 +1,340 @@
+[
+    {
+        "header": "0 Valid input: all fields",
+        "input": {
+            "name"      : "Vladimir",
+            "email"     : "matv99v@gmail.com",
+            "username"  : "matv",
+            "password"  : "31vv12vv84vv++P",
+            "repassword": "31vv12vv84vv++P",
+            "year"      : "1985",
+            "month"     : "01",
+            "day"       : "01",
+            "phone"     : "+380969137195"
+        },
+        "expect": {}
+    },
+
+    {
+        "header": "1 Invalid input: future date check",
+        "input": {
+            "name"      : "Vladimir",
+            "email"     : "matv99v@gmail.com",
+            "username"  : "matv",
+            "password"  : "31vv12vv84vv++P",
+            "repassword": "31vv12vv84vv++P",
+            "year"      : "2027",
+            "month"     : "12",
+            "day"       : "12",
+            "phone"     : "+380969137195"
+        },
+        "expect": {
+            "birthday": "Date should not be in future"
+        }
+    },
+
+    {
+        "header": "2 Valid input: required fields",
+        "input": {
+            "name"      : "Vladimir",
+            "email"     : "matv99v@gmail.com",
+            "username"  : "matv",
+            "password"  : "31vv12vv84vv++P",
+            "repassword": "31vv12vv84vv++P",
+            "year"      : "",
+            "month"     : "",
+            "day"       : "",
+            "phone"     : ""
+        },
+        "expect": {}
+    },
+
+    {
+        "header": "3 Invalid input: no data",
+        "input": {
+            "name"      : "",
+            "email"     : "",
+            "username"  : "",
+            "password"  : "",
+            "repassword": "",
+            "year"      : "",
+            "month"     : "",
+            "day"       : "",
+            "phone"     : ""
+        },
+        "expect": {
+            "name"      : "Required",
+            "email"     : "Required",
+            "username"  : "Required",
+            "password"  : "Required",
+            "repassword": "Required"
+        }
+    },
+
+    {
+        "header": "4 Invalid input: testing name",
+        "input": {
+            "name": "123,/*-+`~=)]}"
+        },
+        "expect": {
+            "name": "Should contain only letters latin/cyrillic"
+        }
+    },
+
+    {
+        "header": "5 Invalid input: testing name",
+        "input": {
+            "name": "Владимир"
+        },
+        "expect": {}
+    },
+
+    {
+        "header": "6 Valid input: testing email",
+        "input": {
+            "email": "matv@mail.com"
+        },
+        "expect": {}
+    },
+
+    {
+        "header": "7 Invalid input: testing email",
+        "input": {
+            "email": "matvmail.com"
+        },
+        "expect": {
+            "email": "Wrong email format"
+        }
+    },
+
+    {
+        "header": "8 Invalid input: testing email",
+        "input": {
+            "email": "@mail.com"
+        },
+        "expect": {
+            "email": "Wrong email format"
+        }
+    },
+
+    {
+        "header": "9 Invalid input: testing email",
+        "input": {
+            "email": "mail@.com"
+        },
+        "expect": {
+            "email": "Wrong email format"
+        }
+    },
+
+    {
+        "header": "10 Invalid input: testing email",
+        "input": {
+            "email": "go@mail.c"
+        },
+        "expect": {
+            "email": "Wrong email format"
+        }
+    },
+
+    {
+        "header": "11 Invalid input: testing email",
+        "input": {
+            "email": "go@mail.рф"
+        },
+        "expect": {
+            "email": "Wrong email format"
+        }
+    },
+
+    {
+        "header": "12 Invalid input: testing email",
+        "input": {
+            "email": "go@mail."
+        },
+        "expect": {
+            "email": "Wrong email format"
+        }
+    },
+
+    {
+        "header": "13 Invalid input: testing email",
+        "input": {
+            "email": ".go@mail.com"
+        },
+        "expect": {
+            "email": "Wrong email format"
+        }
+    },
+
+    {
+        "header": "14 Invalid input: testing username",
+        "input": {
+            "username": "matveev11"
+        },
+        "expect": {
+            "username": "Should contain only letters latin/cyrillic"
+        }
+    },
+
+    {
+        "header": "15 Invalid input: testing username",
+        "input": {
+            "username": "матвеев11"
+        },
+        "expect": {
+            "username": "Should contain only letters latin/cyrillic"
+        }
+    },
+
+    {
+        "header": "16 Valid input: testing username",
+        "input": {
+            "username": "матвеев"
+        },
+        "expect": {}
+    },
+
+    {
+        "header": "17 Valid input: testing username",
+        "input": {
+            "username": "matveev"
+        },
+        "expect": {}
+    },
+
+    {
+        "header": "18 Valid input: testing password and repassword",
+        "input": {
+            "password": "31vv54cx84po--P",
+            "repassword": "31vv54cx84po--P"
+        },
+        "expect": {}
+    },
+
+    {
+        "header": "19 Invalid input: testing password and repassword",
+        "input": {
+            "password"  : "31vv54cx84po--",
+            "repassword": "31vv54cx84po--"
+        },
+        "expect": {
+            "password"  : "Should contain at least one uppercase letter"
+        }
+    },
+
+    {
+        "header": "20 Invalid input: testing password and repassword",
+        "input": {
+            "password"  : "31vv54cx84poP",
+            "repassword": "31vv54cx84poP"
+        },
+        "expect": {
+            "password"  : "Should contain at least one special character"
+        }
+    },
+
+    {
+        "header": "21 Invalid input: testing password and repassword",
+        "input": {
+            "password"  : "vvcxpo--P",
+            "repassword": "vvcxpo--P"
+        },
+        "expect": {
+            "password"  : "Should contain at least one digit"
+        }
+    },
+
+    {
+        "header": "22 Invalid input: testing password and repassword",
+        "input": {
+            "password"  : "3vo-P",
+            "repassword": "3vo-P"
+        },
+        "expect": {
+            "password"  : "Should contain at least 8 characters"
+        }
+    },
+
+    {
+        "header": "23 Valid input: testing year",
+        "input": {
+            "year": "1985"
+        },
+        "expect": {}
+    },
+
+    {
+        "header": "24 Invalid input: testing year",
+        "input": {
+            "year": "19859"
+        },
+        "expect": {
+            "birthday": "Invalid date"
+        }
+    },
+
+    {
+        "header": "25 Invalid input: testing year",
+        "input": {
+            "year": "asd"
+        },
+        "expect": {
+            "birthday": "Invalid date"
+        }
+    },
+
+    {
+        "header": "26 Valid input: testing month",
+        "input": {
+            "month": "07"
+        },
+        "expect": {}
+    },
+
+    {
+        "header": "27 Invalid input: testing month",
+        "input": {
+            "month": "q="
+        },
+        "expect": {
+            "birthday": "Invalid date"
+        }
+    },
+
+    {
+        "header": "28 Valid input: testing day",
+        "input": {
+            "day": "28"
+        },
+        "expect": {}
+    },
+
+    {
+        "header": "29 Invalid input: testing day",
+        "input": {
+            "day": "-5"
+        },
+        "expect": {
+            "birthday": "Invalid date"
+        }
+    },
+
+    {
+        "header": "30 Valid input: testing phone",
+        "input": {
+            "phone": "+38(096) 913-71-95"
+        },
+        "expect": {}
+    },
+
+    {
+        "header": "31 Invalid input: testing phone",
+        "input": {
+            "phone": "-5a"
+        },
+        "expect": {
+            "phone": "Wrong number"
+        }
+    }
+]

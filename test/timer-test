@@ -30,7 +30,7 @@ test('Check timer measurments', (done) => {
     timer.start();
 
     delay(250)
-        .then( () => assert.closeTo(timer.getSpentTime(), 250, 50, 'should be between [200, 300]' ))
+        .then(() => assert.closeTo(timer.getSpentTime(), 250, 50, 'should be between [200, 300]' ))
         .then(() => delay(250))
         .then(() => assert.closeTo(timer.getSpentTime(), 500, 50, 'should be between [450, 550]' ))
         .then(() => delay(500))
