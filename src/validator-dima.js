@@ -3,6 +3,7 @@
 function validateRegistrationData(formData) {
     const errors = {};
     const regName = /^[а-яА-ЯёЁa-zA-Z]+$/i;
+    /* eslint-disable max-len */
     const regEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9] + {1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     const regUsername = /^[a-zA-Z][a-zA-Z\.]{1,20}$/;
     const minMaxLength = /^[\s\S]{8,}$/,
@@ -65,21 +66,21 @@ function validateRegistrationData(formData) {
         if (item === 'repassword') {
             if (formData[item] === '') {
                 errors.repassword = 'Required';
-            } else if (formData['password'] !== formData[item]) {
+            } else if (formData.password !== formData[item]) {
                 errors.repassword = 'Should be equal to password';
             }
         }
 
         if (item === 'month' || item === 'day' || item === 'year') {
-            if (!regDate.test(formData['month'])) {
+            if (!regDate.test(formData.month)) {
                 errors.birthday = 'Invalid date';
-            } else if (!regDate.test(formData['day'])) {
+            } else if (!regDate.test(formData.day)) {
                 errors.birthday = 'Invalid date';
-            } else if (!regDate.test(formData['year'])) {
+            } else if (!regDate.test(formData.year)) {
                 errors.birthday = 'Invalid date';
             } else {
                 const nowDate = new Date().getTime();
-                const userDate = new Date(formData['year'], formData['month'], formData['day']).getTime();
+                const userDate = new Date(formData.year, formData.month, formData.day).getTime();
                 if (userDate > nowDate) {
                     errors.birthday = 'Date should not be in future';
                 }
@@ -87,9 +88,9 @@ function validateRegistrationData(formData) {
         }
 
         if (item === 'phone') {
-            if (formData['phone'] === '') {
+            if (formData.phone === '') {
                 errors.phone = '';
-            } else if (!regPhone.test(formData['phone'])) {
+            } else if (!regPhone.test(formData.phone)) {
                 errors.phone = 'Wrong number';
             }
         }
