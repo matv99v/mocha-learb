@@ -6,7 +6,7 @@
   "scripts": {
     "test_mocha": "mocha --timeout 60000 --reporter spec --ui qunit test/*.js",
     "lint": "eslint src test",
-    "test": "npm run lint && npm run test_mocha && npm run coveralls",
+    "test": "npm run lint && npm run test_mocha",
     "test_istanbul": "./node_modules/.bin/istanbul cover node_modules/.bin/_mocha -- --timeout 60000 --ui qunit --reporter spec test/*.js",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
   },
