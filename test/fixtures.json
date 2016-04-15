@@ -213,6 +213,17 @@
     },
 
     {
+        "header": "18_1 Invlid input: testing password and repassword",
+        "input": {
+            "password": "31vv54cx84po--P",
+            "repassword": "31vv54cx84po--P000"
+        },
+        "expect": {
+            "repassword": "Should be equal to password"
+        }
+    },
+
+    {
         "header": "19 Invalid input: testing password and repassword",
         "input": {
             "password"  : "31vv54cx84po--",
